@@ -24,10 +24,11 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Электромонтаж в Волгаграде</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -39,5 +40,11 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      (function(w, d, s, u, id) {
+      var js = d.createElement(s); js.async = 1; js.src = u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2); window.ucrmProjectId = id;
+      })(window, document, 'script', 'https://api.u-crm.ru/ucrm-module-visit.js', '3074');
+      </script>
+      <script src="../src/scripts/smtp.js" ></script>
   </body>
 </html>
