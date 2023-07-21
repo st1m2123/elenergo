@@ -8,7 +8,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import {Animated} from "react-animated-css";
 
 function About() {
 
@@ -20,8 +20,13 @@ function About() {
 
     return (
         <>
+            <div id="TitlePage"></div>
+            <Animated animationIn="fadeInUpBig" animationOut="fadeOut" isVisible={true}>
             <div className={s.main}>
-                <Typography variant="h3" component="div" sx={{ textAlign: 'center', letterSpacing: '.3rem' }}>
+                <Typography variant="h3" component="div" sx={{ display: {xs: "none", md: "flex"} ,textAlign: 'center', letterSpacing: '.3rem' }}>
+                    О Компании
+                </Typography>
+                <Typography variant="h3" component="div" sx={{ display: {xs: "block", md: "none"} ,marginTop:'150px', textAlign: 'center', letterSpacing: '.3rem' }}>
                     О Компании
                 </Typography>
                 <div className={s.aboutCompany}>
@@ -29,7 +34,7 @@ function About() {
                         <Typography variant="h5" component="div" sx={{display: {xs: "none", md: "flex"}, fontSize: "30px", letterSpacing: '.3rem', color: "#3F3E3E", marginBottom: "80px" }}>
                             Мы - компания Элэнерго.
                         </Typography>
-                        <Typography variant="h5" component="div" sx={{maxWidth:"300px",textAlign: 'center', margin: "30px 50px",fontWeight: 10, display: {xs: "flex", md: "none"}, fontSize: "30px", letterSpacing: '.3rem', color: "#3F3E3E", marginBottom: "20px" }}>
+                        <Typography variant="h5" component="div" sx={{maxWidth:"300px",textAlign: 'start', margin: "30px 47px 0px",fontWeight: 10, display: {xs: "flex", md: "none"}, fontSize: "25px", letterSpacing: '.2rem', color: "#3F3E3E", marginBottom: "20px" }}>
                             Мы - компания Элэнерго.
                         </Typography>
                         <Typography variant="p" component="div" sx={{
@@ -160,6 +165,7 @@ function About() {
         </AccordionDetails>
       </Accordion>
             </div>
+            </Animated>
         </>
     )
 }

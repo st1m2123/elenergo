@@ -5,6 +5,7 @@ import montajPng from "./img/laba.jpg"
 import montajJpg from "./img/obsl_electro.jpg"
 import projectJpg from "./img/1920.jpg"
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import {Animated} from "react-animated-css";
 
 function Services (){
     const Items = [
@@ -16,7 +17,7 @@ function Services (){
         },
         {
             title: "Электромонтажные работы".toUpperCase(),
-            description: "Качественный монтаж снижает стоимость дальнейшей эксплуатации, а также аварийность объекта. Организуем и выполним электромонтаж на объекте под ключ с помощью команды специалистов с разработкой проекта электроснабжения и последующим введением в эксплуатацию до получения разрешительной документации. Добавить в электромонтаж в короткое описание",
+            description: "Качественный монтаж снижает стоимость дальнейшей эксплуатации, а также аварийность объекта. Организуем и выполним электромонтаж на объекте под ключ с помощью команды специалистов с разработкой проекта электроснабжения и последующим введением в эксплуатацию до получения разрешительной документации.",
             img: `${projectJpg}`,
             url: '/companyProjects/ELECTRICINSTALLATIONWORK'
         },
@@ -34,6 +35,7 @@ function Services (){
     }
 
     return (
+        <Animated animationIn="fadeInUpBig" animationOut="fadeOut" isVisible={true}>
         <div className={s.serviceContent}>
             <div onClick={handleLink} style={{cursor: 'pointer'}}>
             <Typography 
@@ -56,6 +58,7 @@ function Services (){
             )})}
             </div>
         </div>
+        </Animated>
     )
 }
 

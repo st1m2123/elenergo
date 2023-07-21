@@ -18,7 +18,7 @@ function ContactUs() {
             Host: "smtp.elasticemail.com",
             Username: "elenergo34@gmail.com",
             Password: "3E5AC02565E51C89D2B8DB44B11779986186",
-            To: "dmitry.kuchenko@yandex.ru",
+            To: "elenergo34@yandex.ru",
             From: "elenergo34@gmail.com",
             Subject: "Новый клиент",
             Body: `Имя: ${data.name}, Номер телефона: ${data.phone}, Электронная почта ${data.email} `
@@ -56,7 +56,7 @@ function ContactUs() {
                         display: { xs: 'none', md: 'flex' }
                     }}
                 >
-                    Наши менеджеры свяжутся с вами в ближайшее время и проконсультируют по любым вопросам
+                    Наши технические специалисты свяжутся с вами в ближайшее время и проконсультируют по любым вопросам
                 </Typography>
                 <Typography
                     className={s.textContactUs}
@@ -66,7 +66,7 @@ function ContactUs() {
                         display: { xs: 'flex', md: 'none' }
                     }}
                 >
-                    Наши менеджеры свяжутся с вами в ближайшее время и проконсультируют по любым вопросам
+                    Наши технические специалисты свяжутся с вами в ближайшее время и проконсультируют по любым вопросам
                 </Typography>
                     <form onSubmit={handleSubmit(onSubmit)}>
                     {errors.phone && <p style={{color: "red"}} role="alert">{errors.phone?.message}</p>}

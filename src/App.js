@@ -10,20 +10,39 @@ import Services from './components/pages/services';
 import Contact from './components/pages/contact';
 import About from './components/pages/about';
 import CompanyProjects from './components/pages/companyProjects'
-import { PostContext, ModalContext } from './components/context/postContext';
-import { useState } from 'react';
+import { PostContext, ModalContext, RequestCall } from './components/context/postContext';
+import { useEffect, useState } from 'react';
 import PostPage from './components/pages/post'
 import { ModalWindows } from './components/elements/modal/ModalWindows.jsx';
+import { ModalContact } from './components/elements/modal/modalContactUs';
+import { ScrollRestoration } from "react-router-dom"
+import ScrollToUp from './components/elements/scrollToTop'
+import {Animated} from "react-animated-css";
+import Btncall from './components/elements/btnCall/btncall';
+
 
 function App() {
   const [postContext, setPostContext] = useState([]);
   const [modalContext, setModalContext] = useState([1]);
+  const [requestCall, setRequestCall] = useState('');
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname === '/'){
+      
+    } else {
+      ScrollToUp()
+    }
+  }, [location.pathname])
+
   return (
     <>
+    <RequestCall.Provider value={[requestCall, setRequestCall]}>
     <PostContext.Provider value={[postContext, setPostContext]}>
     <ModalContext.Provider value={[modalContext, setModalContext]}>
       <ModalWindows/>
-      <Header />
+      <ModalContact/>
+      <Btncall/>
+      <Header/>
       <Routes>
       <Route path='/' element={<HomePage/>}/>
       <Route path='services' element={<Services/>}/>
@@ -32,10 +51,12 @@ function App() {
       <Route path='companyProjects' element={<CompanyProjects/>}/>
       <Route path='companyProjects/:id' element={<PostPage/>}/>
     </Routes>
+    {/* <button onClick={() => {ScrollToUp('UsWorks')}}>to Up</button> */}
       <ContactUs />
       <Footer />
       </ModalContext.Provider>
       </PostContext.Provider>
+      </RequestCall.Provider>
     </>
   );
 }

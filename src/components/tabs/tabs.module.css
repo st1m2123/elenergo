@@ -17,6 +17,7 @@
 .tabImage{
     width : 550px;
     height: 340px;
+    pointer-events: "none"
 }
 
 @media (max-width: 500px) {

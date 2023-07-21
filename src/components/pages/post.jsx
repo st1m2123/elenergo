@@ -10,8 +10,10 @@ import s from './post.module.css';
 import { useParams } from 'react-router-dom';
 import { Cardcontent as ProjectsItem} from './companyProjects'
 import { postItems as ServiceItem } from './services';
+import {Animated} from "react-animated-css";
 
 export default function MasonryImageList() {
+
   const {id} = useParams();
   const [postContext, setPostContext] = React.useContext(PostContext);
   const joinedArry = [...ServiceItem, ...ProjectsItem];
@@ -25,10 +27,18 @@ export default function MasonryImageList() {
  
   return (
     <>
+    <div id="TitlePage"></div>
+    <Animated animationIn="fadeInUpBig" animationOut="fadeOut" isVisible={true}>
       <div className={s.postContent}>
         <Typography
           variant="h4"
-          sx={{ letterSpacing: 5, textAlign: 'center', marginTop: "70px", marginBottom: '70px' }}
+          sx={{ letterSpacing: 5, display: {xs: 'none', md: 'flex'}, textAlign: 'center', marginTop: "80px", marginBottom: '70px' }}
+        >
+          {postContext.title}
+        </Typography>
+        <Typography
+          variant="h6"
+          sx={{ letterSpacing: 3, fontSize: "23px", display: {xs: 'flex', md: 'none'}, textAlign: 'center', marginTop: "100px", marginBottom: '70px' }}
         >
           {postContext.title}
         </Typography>
@@ -65,6 +75,7 @@ export default function MasonryImageList() {
               )})
             : null }
       </div>
+      </Animated>
     </>
   );
 }

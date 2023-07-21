@@ -7,6 +7,10 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Box from '@mui/material/Box';
 import ContactBtn from './contactButtons/contactBtn'
+import { RequestCall } from "../context/postContext"
+import { useContext } from 'react'
+import {Animated} from "react-animated-css";
+
 
 const contactsInfo = [
     {
@@ -40,12 +44,14 @@ function Header() {
         )
     });
 
+    const [requestCall,setRequestCall] = useContext(RequestCall);
 
     return (
-        <div className={s.headerBlock}>
+        <div styleName='qwe' className={s.headerBlock}>
             <div className={s.overlay}>
                 <div className={s.content}>
                     <NavBar />
+                    <Animated animationIn="fadeInLeft" animationOut="fadeOut" isVisible={true}>
                     <div className={s.centeralBlock}>
                         <Typography
                             variant="h4"
@@ -78,9 +84,9 @@ function Header() {
                                 pointerEvents: "none",
                                 display: { xs: 'flex', md: 'none' }
                             }}
-                        >ЭЛЭНЕРГО - ЭЛЕКТРОМОНТАЖНЫЕ РАБОТЫ В ГОРОДЕ ВОЛГОГРАД </Typography>
+                        >ЭЛЭНЕРГО - ЭЛЕКТРОМОНТАЖНЫЕ <br /> РАБОТЫ <br />В ЭЛЕКТРОУСТАНОВКАХ 0.4 - 10 кВ</Typography>
                         <br />
-                        <Button sx={{ 
+                        <Button onClick={() => {setRequestCall(true)}} sx={{ 
                             alignSelf: 'start',
                             backgroundColor: '#292929c3',
                             padding: '10px 20px',
@@ -94,7 +100,7 @@ function Header() {
                             variant="contained">
                                 Заказать звонок
                         </Button>
-                        <Button sx={{ 
+                        <Button onClick={() => {setRequestCall(true)}} sx={{ 
                             alignSelf: 'start',
                             backgroundColor: '#292929c3',
                             padding: '10px 20px',
@@ -110,6 +116,8 @@ function Header() {
                                 Заказать звонок
                         </Button>
                     </div>
+                    </Animated>
+                    <Animated animationIn="fadeInUp" animationOut="fadeOut" isVisible={true}>
                     <Box sx={{display: {xs: 'none', md: "flex"}}} className={s.headerCard}>
                         {BlockSmallCards}
                     </Box >
@@ -132,8 +140,10 @@ function Header() {
                         <ContactBtn/>
                         </div>
                     </Box>
+                    </Animated>
                 </div>
             </div>
+            <div id="headerBottom"></div>
         </div>
     )
 }
